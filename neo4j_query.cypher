@@ -16,6 +16,7 @@ CALL gds.graph.create(
 );
 CALL gds.nodeSimilarity.stream('Membersimilary')
 YIELD node1, node2, similarity
+Where similarity > 0.5
 RETURN gds.util.asNode(node1).id AS Member1, gds.util.asNode(node2).id AS Member2, similarity
 ORDER BY similarity DESCENDING, Member1, Member2
 
@@ -31,5 +32,6 @@ CALL gds.graph.create(
 );
 CALL gds.nodeSimilarity.stream('Postsimilary')
 YIELD node1, node2, similarity
+Where similarity > 0.5
 RETURN gds.util.asNode(node1).id AS Post1, gds.util.asNode(node2).id AS Post2, similarity
 ORDER BY similarity DESCENDING, Post1, Post2
